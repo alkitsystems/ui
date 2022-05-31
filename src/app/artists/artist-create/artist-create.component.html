@@ -1,0 +1,40 @@
+<h2>{{ title }}</h2>
+
+<form
+  #frmArtist="ngForm"
+  id="frmArtist"
+  novalidate
+  (ngSubmit)="onSaveArtist()"
+>
+  <div class="row py-2">
+    <label class="control-label col-sm-3" for="txtName">Name:</label>
+    <div class="col-sm-5">
+      <input
+        id="txtName"
+        type="text"
+        class="form-control"
+        [(ngModel)]="artist.name"
+        title="Name"
+        placeholder="Enter a name ..."
+        [ngModelOptions]="{ standalone: true }"
+      />
+    </div>
+  </div>
+  <div class="form-group py-2">
+    <button type="submit" class="btn btn-primary me-3">
+      <i class="fa fa-save"></i> Save
+    </button>
+    <div class="btn-group">
+      <button type="button" (click)="onBack()" class="btn btn-secondary me-3">
+        <i class="fa fa-arrow-left"></i> Back
+      </button>
+      <button
+        type="button"
+        (click)="reset()"
+        class="btn btn-danger"
+      >
+        <i class="fa fa-undo"></i> Reset
+      </button>
+    </div>
+  </div>
+</form>

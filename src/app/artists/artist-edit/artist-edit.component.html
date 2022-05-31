@@ -1,0 +1,61 @@
+<div *ngIf="artist">
+  <h2>{{ title }}</h2>
+
+  <div>
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-9">
+        <form
+          #frmArtist="ngForm"
+          id="frmArtist"
+          novalidate
+          (ngSubmit)="onSaveArtist(frmArtist)"
+        >
+          <div class="row py-2">
+            <label class="control-label col-sm-3" for="txtName">Name:</label>
+            <div class="col-sm-5">
+              <input
+                id="txtName"
+                name="txtName"
+                type="text"
+                class="form-control"
+                [(ngModel)]="artist.name"
+                title="Name"
+                placeholder="Enter a name ..."
+              />
+            </div>
+          </div>
+          <div class="form-group py-2">
+            <button type="submit" class="btn btn-primary me-3">
+              <i class="fa fa-save"></i> Save
+            </button>
+            <div class="btn-group">
+              <button
+                type="button"
+                (click)="onBack()"
+                class="btn btn-secondary me-3"
+              >
+                <i class="fa fa-arrow-left"></i> Back
+              </button>
+              <button
+                type="button"
+                (click)="reset()"
+                class="btn btn-warning me-3"
+              >
+                <i class="fa fa-undo"></i> Reset
+              </button>
+              <button
+                type="button"
+                (click)="delete(artist.id)"
+                class="btn btn-danger"
+              >
+                <i class="fa fa-times"></i> Delete
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

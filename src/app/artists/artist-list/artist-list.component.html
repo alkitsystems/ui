@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>{{ title }}</h2>
+  </div>
+  <div class="col-sm-6 align-bottom">
+    <button class="btn btn-primary pull-right" routerLink="/artists/create">
+      Create Artist
+    </button>
+  </div>
+</div>
+<table class="table table-striped" style="text-align: left">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let artist of artists | async">
+      <td>
+        <div class="btn-group">
+          <button
+            routerLink="/artists/detail/{{ artist.id }}"
+            class="btn btn-secondary btn-sm me-2"
+          >
+            <i class="fa fa-search"></i>
+          </button>
+          <button
+            routerLink="/artists/edit/{{ artist.id }}"
+            class="btn btn-info btn-sm me-2"
+          >
+            <i class="fa fa-pencil-square-o"></i>
+          </button>
+          <button (click)="delete(artist.id)" class="btn btn-danger btn-sm">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </td>
+      <td>{{ artist.name }}</td>
+    </tr>
+  </tbody>
+</table>

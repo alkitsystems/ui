@@ -1,0 +1,30 @@
+<div *ngIf="artist | async; let artist">
+  <h2>{{ title }}</h2>
+
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-9">
+      <div class="row py-2">
+        <label class="col-sm-2">Name:</label>
+        <div class="col-sm-9">{{ artist.name }}</div>
+      </div>
+      <div class="btn-group py-2">
+        <button
+          type="button"
+          class="btn btn-secondary me-3"
+          routerLink="/artists"
+        >
+          <i class="fa fa-arrow-left"></i> Back
+        </button>
+        <button
+          type="button"
+          (click)="delete(artist.id)"
+          class="btn btn-danger"
+        >
+          <i class="fa fa-times"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
